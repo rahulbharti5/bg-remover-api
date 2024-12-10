@@ -5,6 +5,9 @@ from PIL import Image
 import io
 
 app = Flask(__name__)
+@app.route('/')
+def welcome():
+    return "Welcome to the Background Remover API!"
 
 @app.route('/process-image', methods=['POST'])
 def process_image():
@@ -32,5 +35,6 @@ def process_image():
         return {"error": str(e)}, 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))  # Use the PORT environment variable
-    app.run(host='0.0.0.0', port=port)
+    # port = int(os.environ.get('PORT', 5000))  # Use the PORT environment variable
+    # app.run(host='0.0.0.0', port=port)
+    app.run()
